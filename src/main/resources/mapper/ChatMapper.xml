@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro.ycdl.chat.mapper.ChatMapper">
+  <resultMap id="BaseResultMap" type="pro.ycdl.chat.domain.Chat">
+    <!--@mbg.generated-->
+    <!--@Table chat-->
+    <id column="chat_id" jdbcType="VARCHAR" property="chatId" />
+    <result column="chat_username" jdbcType="VARCHAR" property="chatUsername" />
+    <result column="chat_user_key" jdbcType="VARCHAR" property="chatUserKey" />
+    <result column="chat_api_key" jdbcType="VARCHAR" property="chatApiKey" />
+    <result column="chat_model" jdbcType="VARCHAR" property="chatModel" />
+    <result column="chat_prompt" jdbcType="VARCHAR" property="chatPrompt" />
+    <result column="chat_answer" jdbcType="LONGVARCHAR" property="chatAnswer" />
+    <result column="chat_is_end" jdbcType="INTEGER" property="chatIsEnd" />
+    <result column="chat_request_ip_address" jdbcType="VARCHAR" property="chatRequestIpAddress" />
+    <result column="chat_response_json" jdbcType="LONGVARCHAR" property="chatResponseJson" />
+    <result column="chat_prompt_id" jdbcType="VARCHAR" property="chatPromptId" />
+    <result column="chat_finish_reason" jdbcType="VARCHAR" property="chatFinishReason" />
+    <result column="chat_request_url" jdbcType="VARCHAR" property="chatRequestUrl" />
+    <result column="chat_create_time" jdbcType="TIMESTAMP" property="chatCreateTime" />
+    <result column="chat_request_time" jdbcType="INTEGER" property="chatRequestTime" />
+    <result column="chat_max_tokens" jdbcType="INTEGER" property="chatMaxTokens" />
+    <result column="chat_temperature" jdbcType="DOUBLE" property="chatTemperature" />
+    <result column="chat_thread_name" jdbcType="VARCHAR" property="chatThreadName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    chat_id, chat_username, chat_user_key, chat_api_key, chat_model, chat_prompt, chat_answer, 
+    chat_is_end, chat_request_ip_address, chat_response_json, chat_prompt_id, chat_finish_reason, 
+    chat_request_url, chat_create_time, chat_request_time, chat_max_tokens, chat_temperature, 
+    chat_thread_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from chat
+    where chat_id = #{chatId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from chat
+    where chat_id = #{chatId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="pro.ycdl.chat.domain.Chat">
+    <!--@mbg.generated-->
+    insert into chat (chat_id, chat_username, chat_user_key, 
+      chat_api_key, chat_model, chat_prompt, 
+      chat_answer, chat_is_end, chat_request_ip_address, 
+      chat_response_json, chat_prompt_id, chat_finish_reason, 
+      chat_request_url, chat_create_time, chat_request_time, 
+      chat_max_tokens, chat_temperature, chat_thread_name
+      )
+    values (#{chatId,jdbcType=VARCHAR}, #{chatUsername,jdbcType=VARCHAR}, #{chatUserKey,jdbcType=VARCHAR}, 
+      #{chatApiKey,jdbcType=VARCHAR}, #{chatModel,jdbcType=VARCHAR}, #{chatPrompt,jdbcType=VARCHAR}, 
+      #{chatAnswer,jdbcType=LONGVARCHAR}, #{chatIsEnd,jdbcType=INTEGER}, #{chatRequestIpAddress,jdbcType=VARCHAR}, 
+      #{chatResponseJson,jdbcType=LONGVARCHAR}, #{chatPromptId,jdbcType=VARCHAR}, #{chatFinishReason,jdbcType=VARCHAR}, 
+      #{chatRequestUrl,jdbcType=VARCHAR}, #{chatCreateTime,jdbcType=TIMESTAMP}, #{chatRequestTime,jdbcType=INTEGER}, 
+      #{chatMaxTokens,jdbcType=INTEGER}, #{chatTemperature,jdbcType=DOUBLE}, #{chatThreadName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pro.ycdl.chat.domain.Chat">
+    <!--@mbg.generated-->
+    insert into chat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chatId != null">
+        chat_id,
+      </if>
+      <if test="chatUsername != null">
+        chat_username,
+      </if>
+      <if test="chatUserKey != null">
+        chat_user_key,
+      </if>
+      <if test="chatApiKey != null">
+        chat_api_key,
+      </if>
+      <if test="chatModel != null">
+        chat_model,
+      </if>
+      <if test="chatPrompt != null">
+        chat_prompt,
+      </if>
+      <if test="chatAnswer != null">
+        chat_answer,
+      </if>
+      <if test="chatIsEnd != null">
+        chat_is_end,
+      </if>
+      <if test="chatRequestIpAddress != null">
+        chat_request_ip_address,
+      </if>
+      <if test="chatResponseJson != null">
+        chat_response_json,
+      </if>
+      <if test="chatPromptId != null">
+        chat_prompt_id,
+      </if>
+      <if test="chatFinishReason != null">
+        chat_finish_reason,
+      </if>
+      <if test="chatRequestUrl != null">
+        chat_request_url,
+      </if>
+      <if test="chatCreateTime != null">
+        chat_create_time,
+      </if>
+      <if test="chatRequestTime != null">
+        chat_request_time,
+      </if>
+      <if test="chatMaxTokens != null">
+        chat_max_tokens,
+      </if>
+      <if test="chatTemperature != null">
+        chat_temperature,
+      </if>
+      <if test="chatThreadName != null">
+        chat_thread_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chatId != null">
+        #{chatId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatUsername != null">
+        #{chatUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="chatUserKey != null">
+        #{chatUserKey,jdbcType=VARCHAR},
+      </if>
+      <if test="chatApiKey != null">
+        #{chatApiKey,jdbcType=VARCHAR},
+      </if>
+      <if test="chatModel != null">
+        #{chatModel,jdbcType=VARCHAR},
+      </if>
+      <if test="chatPrompt != null">
+        #{chatPrompt,jdbcType=VARCHAR},
+      </if>
+      <if test="chatAnswer != null">
+        #{chatAnswer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="chatIsEnd != null">
+        #{chatIsEnd,jdbcType=INTEGER},
+      </if>
+      <if test="chatRequestIpAddress != null">
+        #{chatRequestIpAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="chatResponseJson != null">
+        #{chatResponseJson,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="chatPromptId != null">
+        #{chatPromptId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatFinishReason != null">
+        #{chatFinishReason,jdbcType=VARCHAR},
+      </if>
+      <if test="chatRequestUrl != null">
+        #{chatRequestUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCreateTime != null">
+        #{chatCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chatRequestTime != null">
+        #{chatRequestTime,jdbcType=INTEGER},
+      </if>
+      <if test="chatMaxTokens != null">
+        #{chatMaxTokens,jdbcType=INTEGER},
+      </if>
+      <if test="chatTemperature != null">
+        #{chatTemperature,jdbcType=DOUBLE},
+      </if>
+      <if test="chatThreadName != null">
+        #{chatThreadName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pro.ycdl.chat.domain.Chat">
+    <!--@mbg.generated-->
+    update chat
+    <set>
+      <if test="chatUsername != null">
+        chat_username = #{chatUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="chatUserKey != null">
+        chat_user_key = #{chatUserKey,jdbcType=VARCHAR},
+      </if>
+      <if test="chatApiKey != null">
+        chat_api_key = #{chatApiKey,jdbcType=VARCHAR},
+      </if>
+      <if test="chatModel != null">
+        chat_model = #{chatModel,jdbcType=VARCHAR},
+      </if>
+      <if test="chatPrompt != null">
+        chat_prompt = #{chatPrompt,jdbcType=VARCHAR},
+      </if>
+      <if test="chatAnswer != null">
+        chat_answer = #{chatAnswer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="chatIsEnd != null">
+        chat_is_end = #{chatIsEnd,jdbcType=INTEGER},
+      </if>
+      <if test="chatRequestIpAddress != null">
+        chat_request_ip_address = #{chatRequestIpAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="chatResponseJson != null">
+        chat_response_json = #{chatResponseJson,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="chatPromptId != null">
+        chat_prompt_id = #{chatPromptId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatFinishReason != null">
+        chat_finish_reason = #{chatFinishReason,jdbcType=VARCHAR},
+      </if>
+      <if test="chatRequestUrl != null">
+        chat_request_url = #{chatRequestUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCreateTime != null">
+        chat_create_time = #{chatCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chatRequestTime != null">
+        chat_request_time = #{chatRequestTime,jdbcType=INTEGER},
+      </if>
+      <if test="chatMaxTokens != null">
+        chat_max_tokens = #{chatMaxTokens,jdbcType=INTEGER},
+      </if>
+      <if test="chatTemperature != null">
+        chat_temperature = #{chatTemperature,jdbcType=DOUBLE},
+      </if>
+      <if test="chatThreadName != null">
+        chat_thread_name = #{chatThreadName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where chat_id = #{chatId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pro.ycdl.chat.domain.Chat">
+    <!--@mbg.generated-->
+    update chat
+    set chat_username = #{chatUsername,jdbcType=VARCHAR},
+      chat_user_key = #{chatUserKey,jdbcType=VARCHAR},
+      chat_api_key = #{chatApiKey,jdbcType=VARCHAR},
+      chat_model = #{chatModel,jdbcType=VARCHAR},
+      chat_prompt = #{chatPrompt,jdbcType=VARCHAR},
+      chat_answer = #{chatAnswer,jdbcType=LONGVARCHAR},
+      chat_is_end = #{chatIsEnd,jdbcType=INTEGER},
+      chat_request_ip_address = #{chatRequestIpAddress,jdbcType=VARCHAR},
+      chat_response_json = #{chatResponseJson,jdbcType=LONGVARCHAR},
+      chat_prompt_id = #{chatPromptId,jdbcType=VARCHAR},
+      chat_finish_reason = #{chatFinishReason,jdbcType=VARCHAR},
+      chat_request_url = #{chatRequestUrl,jdbcType=VARCHAR},
+      chat_create_time = #{chatCreateTime,jdbcType=TIMESTAMP},
+      chat_request_time = #{chatRequestTime,jdbcType=INTEGER},
+      chat_max_tokens = #{chatMaxTokens,jdbcType=INTEGER},
+      chat_temperature = #{chatTemperature,jdbcType=DOUBLE},
+      chat_thread_name = #{chatThreadName,jdbcType=VARCHAR}
+    where chat_id = #{chatId,jdbcType=VARCHAR}
+  </update>
+    <select id="selectPage" resultType="pro.ycdl.chat.domain.Chat">
+        select *
+        from chat
+        where chat_user_key = #{param1,jdbcType=VARCHAR}
+        ORDER BY chat_create_time desc
+        limit #{param2,jdbcType=INTEGER}, #{param3,jdbcType=INTEGER}
+    </select>
+</mapper>

@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+# open-ai
+open-ai:
+  api_key: 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
+  time_out: 30
+  write_time_out: 30
+  read_time_out: 30
+  # 代理端口
+  proxy_port:
+  # 连续问答保留上下文
+  size: 2
+#  proxy_port:
+  chat_GPT:
+    model: gpt-3.5-turbo # 模型id
+    temperature: 0 # 采样温度
+    max_tokens: 4096 # 最大字符串
+    top_p: 1 # 一种替代温度采样的方法，称为核采样，
+spring:
+  # mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.26.39.115:3306/ry
+    username: ruoyi
+    password: qwerpoiu147369@!
+    type: com.alibaba.druid.pool.DruidDataSource
+  # redis
+  redis:
+    host: 120.26.39.115
+    port: 6379
+    password: 123456
+# mybatis
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.pomelo.chat.domain
+  mapper-locations: mapper/**.xml
+  type-handlers-package: com.pomelo.chat.handler
